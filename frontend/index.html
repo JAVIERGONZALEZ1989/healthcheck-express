@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthCheck Express</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="max-w-3xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center text-blue-700 mb-8">HealthCheck Express</h1>
+
+    <div class="flex gap-4 mb-6">
+      <input id="urlInput" type="text" placeholder="Ingresa una URL... https://ejemplo.com" class="flex-1 p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <button onclick="checkURL()" class="bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition">Verificar</button>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-lg font-semibold mb-2">Historial reciente</h3>
+      <div id="historyContainer" class="space-y-1"></div>
+    </div>
+
+    <div id="resultContainer" class="hidden bg-white rounded-xl shadow-md p-6 space-y-4">
+      <h2 class="text-xl font-bold">Resultado de Verificación</h2>
+      <div><strong>URL:</strong> <span id="resultUrl" class="text-blue-600"></span></div>
+      <div><strong>Estado:</strong> <span id="resultStatus"></span></div>
+      <div><strong>Latencia:</strong> <span id="resultTime"></span></div>
+      <div><strong>SSL:</strong> <span id="resultSSL"></span></div>
+
+      <details class="mt-4">
+        <summary class="cursor-pointer text-blue-600">Ver encabezados HTTP</summary>
+        <pre id="resultHeaders" class="bg-gray-100 p-2 mt-2 rounded text-sm overflow-auto"></pre>
+      </details>
+
+      <details>
+        <summary class="cursor-pointer text-blue-600">Ver contenido parcial</summary>
+        <pre id="resultBody" class="bg-gray-100 p-2 mt-2 rounded text-sm overflow-auto"></pre>
+      </details>
+
+      <button id="downloadButton" class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Descargar resultado</button>
+    </div>
+  </div>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

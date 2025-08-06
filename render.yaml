@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: healthcheck-api
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    rootDir: backend
+    autoDeploy: true
