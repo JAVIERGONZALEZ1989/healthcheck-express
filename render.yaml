@@ -5,6 +5,7 @@ services:
     plan: free
     region: oregon
     buildCommand: ""
-    startCommand: gunicorn app:app
+    buildCommand: pip install -r requirements.txt
     rootDir: backend
+
     autoDeploy: true
