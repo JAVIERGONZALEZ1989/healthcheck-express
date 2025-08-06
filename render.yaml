@@ -4,8 +4,11 @@ services:
     runtime: python
     plan: free
     region: oregon
-    buildCommand: ""
     buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
     rootDir: backend
-
     autoDeploy: true
+    envVars:
+      - key: RENDER_PYTHON_USE_POETRY
+        value: false
+
