@@ -51,13 +51,18 @@ function downloadResult(data) {
   }
 }
 
-
 async function checkURL() {
   const url = document.getElementById("urlInput").value;
   if (!url) return alert("Por favor ingresa una URL válida");
 
   try {
-    const res = await fetch(`http://localhost:5000/check?url=${encodeURIComponent(url)}`);
+    // ✅ URL relativa en vez de localhost
+    const res = await fetch(`/check?url=${encodeURIComponent(url)}`);
+
+    if (!res.ok) {
+      throw new Error(`Error del servidor: ${res.status}`);
+    }
+
     const data = await res.json();
 
     document.getElementById("resultUrl").textContent = data.url;
@@ -83,7 +88,6 @@ async function checkURL() {
 }
 
 window.onload = renderHistory;
-
 
 
 
